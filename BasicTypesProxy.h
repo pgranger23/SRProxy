@@ -171,7 +171,7 @@ namespace caf
     std::string IndexField() const;
 
     /// add [i], or something more complex for nested CAFs
-    std::string Subscript(int i) const;
+    std::string Subscript(size_t i) const;
 
     std::string SubName() const;
 
@@ -347,7 +347,7 @@ namespace caf
     }
 
   protected:
-    void EnsureElem(int i) const
+    void EnsureElem(size_t i) const
     {
       CheckIndex(i, N);
       if(fElems[i]) return; // element already created

@@ -577,7 +577,7 @@ namespace caf
   }
 
   //----------------------------------------------------------------------
-  std::string ArrayVectorProxyBase::Subscript(int i) const
+  std::string ArrayVectorProxyBase::Subscript(size_t i) const
   {
     // Only have to do the at() business for the nested case for subscripts
     // from the 3rd one on
