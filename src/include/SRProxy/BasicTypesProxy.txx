@@ -316,7 +316,10 @@ template <class T> T Proxy<T>::GetValueFlat() const {
     }
   }
 
-  fBranch->GetEntry(fEntry);
+  // Every element of an array branch shares the branch: only read it once per entry
+  if (fBranch->GetReadEntry() != fEntry) {
+    fBranch->GetEntry(fEntry);
+  }
 
   GetTypedValueWrapper(fLeaf, fVal, static_cast<int>(fBase + fOffset));
 
